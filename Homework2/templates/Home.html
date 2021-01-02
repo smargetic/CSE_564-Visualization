@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment 2 Code</title>
+    {% load static %}
+    <link href="{% static 'index.css'%}" rel="stylesheet" type="text/css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="{% static 'index.js'%}"></script>
+    <!-- <script src = "../ScreePlots.html"></script> -->
+    <style>
+        body{
+            background-image: url("/static/coffeeWork.jpg");
+            position: absolute;
+            background-size:115%;
+            background-position: 70% 0%;
+            /* z-index: 0; */
+        }
+    </style>
+  </head>
+  <body>
+    <div id="d3"></div>
+
+
+    <div id="introBox" class = "introBox"></div>
+
+    <div id = "home-menu" class = "home-menu">
+    </div>
+
+    <div id = "anotherBox" class = "anotherBox">
+      <p><font-face = "Courier">Fortune 1000 Companies</p>
+    </div>
+
+    <div id = "anotherBox2" class = "anotherBox2">
+      <p><font-face = "Courier">By: Sabrina Margeti&cacute;</p>
+    </div>
+
+
+    <div id = "topnav" class = "topnav">
+      <a href="#Home" ><font face= "Courier">Home</font></a>
+      <a href= "#ScreePlots" onclick = "location.href='/screePlots/'" ><font face= "Courier">Scree Graphs</a>
+      <a href= "#dataProjectionPCAVect"" onclick="location.href='/pcaDataProjection/'"><font face= "Courier">PCA Vector Scatter Plots</a>
+      <a href= "#mdsScatterPlots"onclick="location.href='/mdsScatterPlots/'" ><font face= "Courier">MDS Scatter Plots</a>
+      <a href= "#scatterPlotMatrix" onclick="location.href='/scatterPlotMatrix/'"><font face= "Courier">Scatter Plot Matrix</a>
+
+
+    </div>
+
+
+
+  </body>
+</html>

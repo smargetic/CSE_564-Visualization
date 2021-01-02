@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Assignment 2 Code</title>
+        {% load static %}
+        <link href="{% static 'index.css'%}" rel="stylesheet" type="text/css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="{% static 'index.js'%}"></script>
+        <script type="text/javascript">var a = "{{ data }}"
+        </script>
+        <style>
+            body{
+                background-image: url("/static/coffeeWork.jpg");
+                position: absolute;
+                background-size:115%;
+                background-position: 70% 0%;
+            }
+        </style>
+      </head>
+
+<body onload="scatterPlot('{{data}}', 'org', 'mds', 'euc')">
+    <div id="d3"></div>
+
+
+    <div id = "topnav" class = "topnav">
+        <a href="#Home" onclick="location.href='/home/'"><font face= "Courier">Home</font></a>
+        <a href= "#ScreePlots" onclick="location.href='/screePlots/'"><font face= "Courier">Scree Graphs</a>
+        <a href= "#dataProjectionPCAVect" onclick="location.href = '/pcaDataProjection/'"><font face= "Courier">PCA Vector Scatter Plots</a>
+        <a href= "#mdsScatterPlots" ><font face= "Courier">MDS Scatter Plots</a>
+        <a href= "#scatterPlotMatrix" onclick="location.href='/scatterPlotMatrix/'"><font face= "Courier">Scatter Plot Matrix</a>
+    </div>
+
+    <div id ="screeVirticalMenu" class = "sidenav">
+        <a><h2><b><font face= "Courier">Types of Data Sets</b></h2></a>
+        <a href="#mdsEucOrgData" onclick="scatterPlot('{{data}}', 'org', 'mds', 'euc')"><font face= "Courier">Euclidean Distance on Original Data</font></a>
+        <a href="#mdsCorOrgData" onclick="scatterPlot('{{data}}', 'org', 'mds', 'cor')"><font face= "Courier">Correlation Distance on Original Data</a>
+        <a href="#mdsEucStratData" onclick= "scatterPlot('{{data}}', 'strat', 'mds', 'euc')"><font face= "Courier">Euclidean Distance on Stratified Data</font></a>
+        <a href="#mdsCorStratData" onclick= "scatterPlot('{{data}}', 'strat', 'mds', 'cor')"><font face= "Courier">Correlation Distance on Stratified Data</font></a>
+        <a href="#mdsEucRandData" onclick="scatterPlot('{{data}}', 'rand', 'mds', 'euc')"><font face= "Courier">Euclidean Distance on Random Data</font></a>
+        <a href="#mdsCorRandData" onclick="scatterPlot('{{data}}', 'rand', 'mds', 'cor')"><font face= "Courier"> Correlation Distance on Random Data</font></a>
+    </div>
+
+
+
+
+</body>
+</html>

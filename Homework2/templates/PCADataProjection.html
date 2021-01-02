@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Assignment 2 Code</title>
+        {% load static %}
+        <link href="{% static 'index.css'%}" rel="stylesheet" type="text/css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="{% static 'index.js'%}"></script>
+        <script type="text/javascript">var a = "{{ data }}"
+        </script>
+        <style>
+            body{
+                background-image: url("/static/coffeeWork.jpg");
+                position: absolute;
+                background-size:115%;
+                background-position: 70% 0%;
+            }
+            
+        </style>
+        
+      </head>
+
+<body onload="scatterPlot('{{data}}', 'org', 'pca', '')">
+    <div id="d3"></div>
+
+
+    <div id = "topnav" class = "topnav">
+        <a href="#Home" onclick="location.href='/home/'"><font face= "Courier">Home</font></a>
+        <a href= "#ScreePlots" onclick="location.href='/screePlots/'"><font face= "Courier">Scree Graphs</a>
+        <a href= "#dataProjectionPCAVect" ><font face= "Courier">PCA Vector Scatter Plots</a>
+        <a href= "#mdsScatterPlots" onclick="location.href='/mdsScatterPlots/'" ><font face= "Courier">MDS Scatter Plots</a>
+        <a href= "#scatterPlotMatrix" onclick="location.href='/scatterPlotMatrix/'"><font face= "Courier">Scatter Plot Matrix</a>
+    </div>
+
+
+    <div id ="PCADataProjectionVirticalMenu" class = "sidenav">
+        <a><h2><b><font face= "Courier">Types of Data Sets</b></h2></a>
+        <a href="#ScreeOriginalData" onclick="scatterPlot('{{data}}', 'org', 'pca', '')"><font face= "Courier">Original Data</font></a>
+        <a href="#ScreeStratifiedData"  onclick="scatterPlot('{{data}}', 'strat', 'pca', '')"><font face= "Courier">Stratified Data</font></a>
+        <a href="#ScreeRandomData" onclick="scatterPlot('{{data}}', 'rand', 'pca', '')"><font face= "Courier">RandomData</font></a>
+    </div>
+
+
+
+
+</body>
+</html>
