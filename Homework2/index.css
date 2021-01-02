@@ -1,0 +1,261 @@
+button{
+  width: 100px;
+  height: 100px;
+  font-size: 14px;
+  vertical-align: top;
+  background-color: #eee;
+}
+
+
+.vertical-menu{
+  width: 300px;
+  height: 700px;
+  display: none;
+  background-color: #E0E0E0;
+  /* height: 00px; */
+  /* position: relative; */
+  /* visibility: hidden; */
+
+}
+
+.vertical a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+/* .vertical a:link{
+  background-color: blue;
+  color: black;
+} */
+
+.vertical-menu a{
+  background-color: #eee;
+  text-decoration: none;
+  display: block;
+  padding: 14px;
+  text-align: center;
+  font-size: 17px;
+  color: black;
+  /* padding: 30px; */
+  /* height: 700px; */
+}
+
+.virtical-menu a.active{
+  color: white;
+  background: brown;
+}
+
+.topnav {
+  /* width: 9600px; */
+
+  background-color: black;
+  overflow: hidden;
+  /* width = 100%; */
+  display: inline-block;
+  opacity: .85;
+  transform: translate(-1.5%, 0%);
+  /* width: 100%; */
+  width: 500%;
+  margin: auto;
+  /* top: 50%;
+left: 50%; */
+  /* mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%); */
+  /* left: 50%; */
+  /* margin: 0px;
+  padding-top: 0px;
+  left: 0px */
+}
+
+.topnav a:hover{
+  background-color: brown;
+  color: white;
+}
+
+.topnav a{
+  background-color:  black;
+  text-decoration: none;
+  display: block;
+  width: 200px;
+  padding: 30px;
+  /* padding-left: 80px;
+  padding-right: 80px; */
+  text-align: center;
+  float: left;
+  color: white;
+  transform: translate(5%, 0%);
+  margin: 0px;
+  font-size: 25px;
+  font: Courier;
+  /* position: fixed; */
+}
+
+.topnav a.active{
+  color: white;
+  background: brown;
+}
+
+.home-menu{
+  /*
+  width: 100px;
+  visibility: none;
+  overflow: hidden;
+  */
+  text-align: center;
+  border: none;
+  /* background: #A8A8A8; */
+  background: #8D6645;
+  /* width: 400px; */
+  width: 700px;
+  height: 750px;
+  /* height: 100px; */
+  opacity: .9;
+  /* transform: translate(210%, 0%); */
+  /* transform: translate(100%, 50%); */
+  /* transform: translate(-10%, -2.76%); */
+  transform: translate(-10%, -.6%);
+  position: absolute;
+
+
+}
+
+.anotherBox{
+  text-align: center: center;
+  boarder: none;
+  background: #785027;
+  opacity: 1;
+  width: 400px;
+  padding: 20px;
+  /* transform: translate(85%, 200%); */
+  transform: translate(75%, 160%);
+  position: absolute;
+  font-size: 27px;
+  padding-left: 80px;
+}
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+
+.home-menu a{
+  float: right;
+  color: black;
+  background-color: #ccc;
+  padding: 14px;
+  text-align: center;
+}
+
+.home-menu a.active{
+  color:white;
+  background-color: #ccc;
+}
+
+.chart {
+  padding: 3px;
+  color: white;
+  background-color: blue;
+}
+
+svg{
+  background-color: white;
+  /* margin.left: auto;
+  margin.right: auto; */
+  margin: auto;
+  display: block;
+  fill: steelblue;
+  shape-rendering: crispEdges;
+  padding: 2px;
+  position: absolute;
+  top: 270px;
+  right: 200px;
+  /* position: relative;
+  right: 20px; */
+  /* position: relative; */
+  /* position: fixed; */
+  /* position: absolute; */
+  /* stroke: black; */
+}
+
+/* svg Graph{
+  width: 500;
+  height: 600;
+} */
+margin-right: 2px;
+
+.background_svg_color{
+  background-color: steelblue;
+}
+
+.bar {
+  fill: #8CD3DD;
+}
+
+.bar: hover {
+  fill: #F56C4E;
+  text: white;
+}
+
+.bar: active{
+  fill: #F56C4E;
+  text: white;
+}
+
+
+
+.slidecontainer{
+  width: 100%;
+}
+
+.slider{
+  background: #d3d3d3;
+  height: 200px;
+  width: 300px;
+  appearance: square;
+  width: 100%
+  opacity: .75;
+  display: none;
+  position: absolute;
+  left: 575px;
+  top: 900px;
+}
+
+.slider: hover{
+  opacity: 1;
+}
+
+.slider:: -webkit-range-thumb {
+  height: 25px;
+  width: 25px;
+  background: #8CD3DD;
+
+}
+
+/* .bg { */
+  /* The image used */
+  /* background-image: image(coffeeWork.jpg); */
+
+  /* Full height */
+  /* height: 100%; */
+  /* bgcolor = "#F5F5F5"  */
+  /* background: #F5F5F5; */
+
+  /* Center and scale the image nicely */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+/* #rightHalf {
+   background: url(coffeeWork.jpg);
+   width: 50%;
+   position: absolute;
+   right: 0px;
+   height: 100%;
+} */
+
+.introBox {
+  background-color: black;
+  overflow: hidden;
+
+  /* margin: 0px;
+  padding-top: 0px;
+  left: 0px */
+}
