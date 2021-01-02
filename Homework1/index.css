@@ -1,0 +1,169 @@
+button{
+  width: 100px;
+  height: 100px;
+  font-size: 14px;
+  vertical-align: top;
+  background-color: #eee;
+}
+
+
+.vertical-menu{
+  width: 300px;
+  display: none;
+  /* position: relative; */
+  /* visibility: hidden; */
+
+
+}
+
+.vertical a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+/* .vertical a:link{
+  background-color: blue;
+  color: black;
+} */
+
+.vertical-menu a{
+  background-color: #eee;
+  text-decoration: none;
+  display: block;
+  padding: 14px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.topnav a:hover{
+  background-color: #008000;
+  color: white;
+}
+
+.topnav a{
+  background-color: #000000;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  float: left;
+  color: white;
+}
+
+.topnav a.active{
+  color: white;
+  background: #4CAF50;
+}
+
+.home-menu{
+  /*
+  width: 100px;
+  visibility: none;
+  overflow: hidden;
+  */
+  text-align: center;
+  border: 5px solid #8CD3DD;
+
+
+}
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+
+.home-menu a{
+  float: right;
+  color: black;
+  background-color: #ccc;
+  padding: 14px;
+  text-align: center;
+}
+
+.home-menu a.active{
+  color:white;
+  background-color: #ccc;
+}
+
+.chart {
+  padding: 3px;
+  color: white;
+  background-color: blue;
+}
+
+svg{
+  background-color: white;
+  /* margin.left: auto;
+  margin.right: auto; */
+  margin: auto;
+  display: block;
+  fill: steelblue;
+  shape-rendering: crispEdges;
+  padding: 2px;
+  position: absolute;
+  top: 270px;
+  right: 200px;
+  /* position: relative;
+  right: 20px; */
+  /* position: relative; */
+  /* position: fixed; */
+  /* position: absolute; */
+  /* stroke: black; */
+}
+
+/* svg Graph{
+  width: 500;
+  height: 600;
+} */
+margin-right: 2px;
+
+.background_svg_color{
+  background-color: steelblue;
+}
+
+.bar {
+  fill: #8CD3DD;
+}
+
+.bar: hover {
+  fill: #F56C4E;
+  text: white;
+}
+
+.bar: active{
+  fill: #F56C4E;
+  text: white;
+}
+
+
+
+.slidecontainer{
+  width: 100%;
+}
+
+.slider{
+  background: #d3d3d3;
+  height: 200px;
+  width: 300px;
+  appearance: square;
+  width: 100%
+  opacity: .75;
+  display: none;
+  position: absolute;
+  left: 575px;
+  top: 900px;
+}
+
+.slider: hover{
+  opacity: 1;
+}
+
+.slider:: -webkit-range-thumb {
+  height: 25px;
+  width: 25px;
+  background: #8CD3DD;
+
+}

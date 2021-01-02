@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment 1 Code</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <!-- <link href="more.css" rel="stylesheet" type="text/css"> -->
+  </head>
+  <body>
+    <div id="d3"></div>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script type = "text/javascript" src="js/index.js"></script>
+
+    <h1><font face= "Comic Sans MS">Fortune 1000 (2018)</h1>
+
+      <!-- top menu -->
+    <div id = "topnav" class = "topnav">
+      <a><font face= "Comic Sans MS">Menu</font></a>
+      <a href="#Home" onclick="hideGraphMenuAndShowHomeMenu(); "><font face= "Comic Sans MS">Home</font></a>
+      <!-- <a href= "#DataTable" onclick= "hideGraphMenu(); hideHomeMenu(); hideRevenueGraph()">Data Table</a> -->
+      <a href= "#Graphs" onclick="showGraphMenuAndHideHomeMenu(); getDataToMakeContinuousGraph('Improved Rank')"><font face= "Comic Sans MS">Graphs</a>
+      <!-- <a href="#Download Data" onclick = "hideGraphMenu(); hideHomeMenu(); hideRevenueGraph()">Download Data</a> -->
+    </div>
+
+    <div id= "home-menu" class = "home-menu">
+      <h3><font face= "Comic Sans MS">Welcome!</font></h3>
+      <p><font face= "Comic Sans MS">My name is Sabrina Margetic. I am a first year Graduate Student studying Computer Science.
+      My undergraduate degree was in Physics with a minor in Electrical Engineering. This is my first
+      attempt at any sort of web application. Due to such, it is also my first attempt at programming
+      in Javascript and Html. </font></p>
+
+      <p><font face= "Comic Sans MS">The data here is reflexive of Fortune 1000 companies in 2018. The tabs above allow you to navigate the page,
+        with the Graph tab allowing you to see various plots related to the data.</font></p>
+
+    </div>
+
+    <!-- side menu -->
+    <div id= "vertical-menu" class="vertical-menu">
+      <a><h3><u><font face= "Comic Sans MS">Attributes To Choose From</u></h3></a>
+      <a href="#Improved_Rank" onclick= "getDataToMakeContinuousGraph('Improved Rank')"><font face= "Comic Sans MS">Improved Rank</font></a>
+      <a href="#Revenues" onclick= "getDataToMakeContinuousGraph('Revenues ($M)')" ><font face= "Comic Sans MS">Revenues ($M)</font></a>
+      <a href="#Revenue_Change" onclick= "getDataToMakeContinuousGraph('Revenue Change')"><font face= "Comic Sans MS">Revenue Change</font></a>
+      <a href="#Profits" onclick= "getDataToMakeContinuousGraph('Profits ($M)')"><font face= "Comic Sans MS">Profits ($M)</font></a>
+      <a href="#Profit_Change" onclick= "getDataToMakeContinuousGraph('Profit Change')"><font face= "Comic Sans MS">Profit Change</font></a>
+      <a href= "#Profit_Revenue" onclick = "getDataForProfitOverRevenue()"><font face= "Comic Sans MS">Profit Over Revenue</font></a>
+      <a href="#Assets" onclick= "getDataToMakeContinuousGraph('Assets ($M)')"><font face= "Comic Sans MS">Assets ($M)</font></a>
+      <a href="#Mkt_Value" onclick= "getDataToMakeContinuousGraph('Mkt Value as of 3/29/18 ($M)')"><font face= "Comic Sans MS">Mkt Value as of 3/29/18 ($M)</font></a>
+      <a href="#Employees" onclick= "getDataToMakeContinuousGraph('Employees')"><font face= "Comic Sans MS">Employees</font></a>
+      <a href="#Years_on_Fortune_500_List" onclick= "getDataToMakeContinuousGraph('Years on Fortune 500 List')"><font face= "Comic Sans MS">Years on Fortune 500 List</font></a>
+      <a href="#CEO_title" onclick= "getDataToMakeDiscreteGraph('CEO Title')"><font face= "Comic Sans MS">CEO Title</font></a>
+      <a href="#Sector"onclick= "getDataToMakeDiscreteGraph('Sector')"><font face= "Comic Sans MS">Sector</font></a>
+      <a href="#Industry" onclick= "getDataToMakeDiscreteGraph('Industry')"><font face= "Comic Sans MS">Industry</font></a>
+      <a href="#City" onclick= "getDataToMakeDiscreteCityGraph('City')"><font face= "Comic Sans MS">City</font></a>
+      <a href="#State" onclick= "getDataToMakeDiscreteGraph('State')"><font face= "Comic Sans MS">State</font></a>
+      <a href="#Region" onclick= "getDataToMakeDiscreteRegionGraph('Region')"><font face= "Comic Sans MS">Region</font></a>
+
+      </div>
+
+
+      <div id = "whereGraphGoes"><sgv id="svgOfGraph" width = "500" height = "500" ></svg>
+      </div>
+
+
+      <div class="slidecontainer" id = "mySlideContainer" >
+        <input  type="range" value = "10" max = "41" min="3" step = "1" class="slider" id="mySlider" onchange = "mySliderFunction()">
+        <!-- <range id ="myRange"></range> -->
+      </div>
+
+
+  </body>
+</html>
