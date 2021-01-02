@@ -1,0 +1,232 @@
+
+  
+  .topnav {
+    z-index: 1;
+    background-color: black;
+    overflow: hidden;
+    display: inline-block;
+    opacity: .85;
+    transform: translate(-.7%, 0%);
+    width: 500%;
+    margin: auto;
+  }
+  
+  .topnav a:hover{
+    background-color: brown;
+    color: white;
+  }
+  
+  .topnav a{
+    background-color:  black;
+    text-decoration: none;
+    display: block;
+    width: 200px;
+    padding: 30px;
+    text-align: center;
+    float: left;
+    color: white;
+    transform: translate(5%, 0%);
+    margin: 0px;
+    font-size: 25px;
+    font: Courier;
+  }
+  
+  .topnav a.active{
+    color: white;
+    background: brown;
+  }
+  
+  .home-menu{
+    text-align: center;
+    border: none;
+    background: #8D6645;
+    width: 700px;
+    /* height: 966px; */
+    /* height: 1000px; */
+    height: 820px;
+    /* height: 10000px; */
+    opacity: .9;
+    transform: translate(-10%, -.6%);
+    position: absolute;
+  }
+  
+  .anotherBox{
+    text-align: center;
+    border: none;
+    background: #785027;
+    opacity: 1;
+    width: 400px;
+    padding: 20px;
+    /* transform: translate(87%, 275%); */
+    /* transform: translate(87%, 250%); */
+    /* transform: translate(87%, 200%); */
+    transform: translate(87%, 240%);
+    position: absolute;
+    font-size: 39px;
+    padding-left: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  .anotherBox2{
+    text-align: center;
+    border: none;
+    /* background:#785027; */
+    background: none;
+    opacity: 1;
+    width: 300px;
+    padding: 0px;
+    /* transform: translate(87%, 380%); */
+    /* transform: translate(87%, 600%); */
+    /* transform: translate(460px, 500px); */
+    /* transform: translate(460px, 470px); */
+    transform: translate(460px, 397px);
+    position: absolute;
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .center {
+    text-align: center;
+    border: 3px solid green;
+  }
+  
+  .home-menu a{
+    float: right;
+    color: black;
+    background-color: #ccc;
+    padding: 14px;
+    text-align: center;
+  }
+  
+  .home-menu a.active{
+    color:white;
+    background-color: #ccc;
+  }
+  
+  .chart {
+    padding: 3px;
+    color: white;
+    background-color: blue;
+  }
+  
+  svg{
+    background-color: white;
+    margin: auto;
+    display: block;
+    fill: steelblue;
+    shape-rendering: crispEdges;
+    padding: 2px;
+    position: absolute;
+    top: 200px;
+    right: 200px;
+  }
+  
+  .background_svg_color{
+    background-color: steelblue;
+  }
+  
+  .bar a {
+    fill: #8CD3DD;
+  }
+  
+  .bar a.hover {
+    fill: #F56C4E;
+    /* text: white; */
+  }
+  
+  .bar a.active{
+    fill: #F56C4E;
+    /* text: white; */
+  }
+  
+  
+  
+  .slidecontainer{
+    width: 100%;
+  }
+  
+  .introBox {
+    background-color: black;
+    overflow: hidden;
+  }
+  
+  .path{
+    stroke-width: 4;
+    fill:none;
+  }
+
+  .line{
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 3;
+  }
+
+  .mylabels{
+    position: absolute;
+  }
+
+  .mydots{
+    position: absolute;
+  }
+
+  .sidenav {
+    width: 300px; /* Set the width of the sidebar */
+    position: absolute;
+    transform: translate(-2.7%, 13.5%);
+    height: 820px;
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  .axis,
+.frame {
+  shape-rendering: crispEdges;
+}
+
+
+  .sidenav a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+
+
+  .cell text {
+    font-weight: bold;
+    text-transform: capitalize;
+    fill: black;
+  }
+
+
+
+.axis line {
+  stroke: #ddd;
+}
+
+.axis path {
+  display: none;
+}
+
+.titleBox{
+  text-align: center;
+  border: none;
+  background:white;
+  opacity: 1;
+  width: 400px;
+  padding: 20px;
+  transform: translate(105%, 70%);
+  position: absolute;
+  font-size: 27px;
+  padding-left: 30px;
+}
