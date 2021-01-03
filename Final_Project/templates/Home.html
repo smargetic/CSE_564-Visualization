@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" /> -->
+
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <!-- gives me errors -->
+    <!-- <script src="https://unpkg.com/react-leaflet/dist/react-leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-leaflet/2.0.0/react-leaflet.min.js"></script> -->
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/topojson.v3.min.js"></script> 
+    
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>   
+    {% load static %}
+    <script src="{% static 'parcoords.js'%}"></script>
+    <link href="{% static 'parcoords.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static 'us-states.js'%}"></script>
+    <script src="{% static 'districts.js'%}"></script>
+    <script src="{% static 'districts2.js'%}"></script>
+    <script src="{% static 'leaflet.js'%}"></script>
+    <link href="{% static 'index.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'leaflet.css'%}" rel="stylesheet" type="text/css">
+  
+
+    <!-- <script src="{% static 'us-counties.topojson.js'%}"></script> -->
+    <script src="{% static 'index.js'%}"></script>
+
+    <style>
+        html, body{
+            /* background:black; */
+            background:#f1f1f1;
+            position: absolute;
+            background-size:100%;
+            /* background-position: 70% 0%;
+            z-index: 0; */
+        }
+    </style>
+  </head>
+  <body  onload="parallelCoordinate2('{{additionalData}}', '{{data}}', 'Total Revenue', '0'),scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1', '','4'),scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','r','4'),usMap('{{additionalData}}', 'trev', '{{data}}','0')" id ="home"></body>
+  <!-- <body  onload="parallelCoordinate('{{additionalData}}',  '{{data}}','trev')" id ="home"> -->
+    <!-- add \t to map -->
+  <!-- <body  onload="usMap('{{additionalData}}', 'trev', '{{data}}'),pieChart('{{additionalData}}', '{{data}}', 'trev'),parallelCoordinate('{{additionalData}}',  '{{data}}','trev')" id ="home"> -->
+    <!-- ,parallelCoordinate('{{additionalData}}',  '{{data}}','trev')" -->
+  <!-- <body  onload="usMap('{{additionalData}}', 'trev', '{{data}}'), pieChart('{{additionalData}}', '{{data}}', 'trev')" id ="home"> -->
+  <!-- <body  onload="pieChart('{{additionalData}}', '{{data}}', 'trev')"> -->
+    <!-- onload="parallelCoordinate('{{additionalData}}')" -->
+    <!-- onload="usMap()" -->
+    <div id="map" ></div>
+    <div id="d3" ></div>
+    <div id = "scatterPlot1"></div>
+    <div id = "scatterPlot2"></div>
+    <div id = "parallelSmall"></div>
+
+    <div id = "stateBarGraph"></div>
+    <div id = "buisBarGraph"></div>
+
+    <div class ="dot" id="dot"></div>
+    <div class ="cell" id="cell">Companies</div>
+<!-- 
+    <span class="dot" id ="dot">\tCompanies</span> -->
+
+    <!-- <div id="pieChart"position="absolute" top="100px"left ="350px"></div> -->
+
+    <div class="dropdown" >
+      <button class="dropbutton"id="drpdown">Total Revenue</button>
+      <div class="dropdown-content"id="drpdownCont">
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','0');usMap('{{additionalData}}', 'trev', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Total Revenue', '0');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','','0')">Total Revenue</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'frev', 'scatterPlot1','','0');usMap('{{additionalData}}', 'frev', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Federal Revenue', '0');scatterPlot2('{{additionalData}}','{{data}}', 'frev', 'scatterPlot2','','0')">Federal Revenue</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'srev', 'scatterPlot1','','0');usMap('{{additionalData}}', 'srev', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'State Revenue', '0');scatterPlot2('{{additionalData}}','{{data}}', 'srev', 'scatterPlot2','','0')">State Revenue</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'texp', 'scatterPlot1','','0');usMap('{{additionalData}}', 'texp', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Total Expenditure', '0');scatterPlot2('{{additionalData}}','{{data}}', 'texp', 'scatterPlot2','','0')">Total Expenditure</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'iexp', 'scatterPlot1','','0');usMap('{{additionalData}}', 'iexp', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Instruction Expenditure', '0');scatterPlot2('{{additionalData}}','{{data}}', 'iexp', 'scatterPlot2','','0')">Instruction Expenditure</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'gdp2010', 'scatterPlot1','','0');usMap('{{additionalData}}', 'gdp2010', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'GDP', '0');scatterPlot2('{{additionalData}}','{{data}}', 'gdp2010', 'scatterPlot2','','0')">GDP</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'cen2010', 'scatterPlot1','','0');usMap('{{additionalData}}', 'cen2010', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Census', '0');scatterPlot2('{{additionalData}}','{{data}}', 'cen2010', 'scatterPlot2','','0')">Census</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'inc', 'scatterPlot1','','0');usMap('{{additionalData}}', 'inc', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Median Household Income', '0');scatterPlot2('{{additionalData}}','{{data}}', 'inc', 'scatterPlot2','','0')">Median Household Income</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'unemp', 'scatterPlot1','','0');usMap('{{additionalData}}', 'unemp', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Unemployment Rate', '0');scatterPlot2('{{additionalData}}','{{data}}', 'unemp', 'scatterPlot2','','0')">Unemployment Rate</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'aviq', 'scatterPlot1','','0');usMap('{{additionalData}}', 'aviq', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Average IQ', '0');scatterPlot2('{{additionalData}}','{{data}}', 'aviq', 'scatterPlot2','','0')">Average IQ</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'hsdeg', 'scatterPlot1','','0');usMap('{{additionalData}}', 'hsdeg', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'High School Grad.', '0');scatterPlot2('{{additionalData}}','{{data}}', 'hsdeg', 'scatterPlot2','','0')">High School Graduate</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'bacdeg', 'scatterPlot1','','0');usMap('{{additionalData}}', 'bacdeg', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Bachelors Grad.', '0');scatterPlot2('{{additionalData}}','{{data}}', 'bacdeg', 'scatterPlot2','','0')">Bachelors Graduate</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'masdeg', 'scatterPlot1','','0');usMap('{{additionalData}}', 'masdeg', '{{data}}','0'),parallelCoordinate2('{{additionalData}}', '{{data}}', 'Masters Grad.', '0');scatterPlot2('{{additionalData}}','{{data}}', 'mas', 'scatterPlot2','','0')">Masters Graduate</a>
+      </div>
+    </div>
+    <!-- will write flag for where it was set  in scatter plot ******-->
+
+
+    <div class="dropdown" >
+      <button class="dropbutton"id="drpdown2">Revenue</button>
+      <div class="dropdown-content"id="drpdownCont2">
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','cr','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Change in Rank</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','r','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Revenue</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','rc','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Revenue Change</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','p','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Profit</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','pc','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Profit Change</a>
+        <a href="#" onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','a','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Assets</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','mv','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Market Value</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','e','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Employees</a>
+        <a href="#"onclick="scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot1','','1');scatterPlot2('{{additionalData}}','{{data}}', 'trev', 'scatterPlot2','yf5l','1');usMap('{{additionalData}}', 'trev', '{{data}}','1')">Years on Fortune 500 List</a>
+      </div>
+    </div>
+
+    <div id="svg"></div>
+    <div id="pie-chart"></div>
+    <div id="parallelGraph"></div>
+    <!-- <div  -->
+
+    <!-- <div id="introBox" class = "introBox"></div>
+
+    <div id = "home-menu" class = "home-menu">
+    </div> -->
+
+    <!-- <div id = "anotherBox" class = "anotherBox">
+      <p><font-face = "Courier">Fortune 1000 Companies</p>
+    </div>
+
+    <div id = "anotherBox2" class = "anotherBox2">
+      <p><font-face = "Courier">By: Sabrina Margeti&cacute;</p>
+    </div> -->
+
+
+    <div id = "topnav" class = "topnav" height = "20px">
+      <a href="#Home" ><font face= "Courier">Home</font></a>
+      <a href= "#ScreePlots" onclick = "location.href='/screePlots/'" ><font face= "Courier">Parallel Coordinates</a>
+      <a href= "#dataProjectionPCAVect"" onclick="location.href='/pcaDataProjection/'"><font face= "Courier">PCA/MDS</a>
+      <a href= "#mdsScatterPlots" onclick="location.href='/mdsScatterPlots/'"><font face= "Courier">Scatter Plot Matrix</a>  
+    </div>
+
+
+
+  </body>
+</html>

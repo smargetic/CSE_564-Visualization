@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Final Project</title>
+        <!-- <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" /> -->
+    
+        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+        <!-- gives me errors -->
+        <!-- <script src="https://unpkg.com/react-leaflet/dist/react-leaflet.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-leaflet/2.0.0/react-leaflet.min.js"></script> -->
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+        <script type="text/javascript" src="https://d3js.org/topojson.v3.min.js"></script> 
+        
+        
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>   
+        {% load static %}
+        <script src="{% static 'parcoords.js'%}"></script>
+        <link href="{% static 'parcoords.css'%}" rel="stylesheet" type="text/css">
+        <script src="{% static 'us-states.js'%}"></script>
+        <script src="{% static 'districts.js'%}"></script>
+        <script src="{% static 'districts2.js'%}"></script>
+        <script src="{% static 'leaflet.js'%}"></script>
+        <link href="{% static 'index.css'%}" rel="stylesheet" type="text/css">
+        <link href="{% static 'leaflet.css'%}" rel="stylesheet" type="text/css">
+      
+    
+        <!-- <script src="{% static 'us-counties.topojson.js'%}"></script> -->
+        <script src="{% static 'index.js'%}"></script>
+    
+        <style>
+            html, body{
+                /* background:black; */
+                background:#f1f1f1;
+                position: absolute;
+                background-size:100%;
+                /* background-position: 70% 0%;
+                z-index: 0; */
+            }
+        </style>
+      </head>
+
+<body onload = "scatterPlotMatrix('{{newCombinedData}}', 'org')">
+    <div id="d3"></div>
+    <div id="scatterPlotMatrix"></div>
+
+    <form style="position: absolute;top:140px;left:480px">
+        <input type= "text" name = "" id="t1" size = "25" style="font-size:25px;padding:8px;text-align:center;border: none;">
+    </form>
+
+    <div id = "topnav" class = "topnav" height = "20px">
+        <a href="#Home"onclick="location.href='/home/'" ><font face= "Courier">Home</font></a>
+        <a href= "#ScreePlots" onclick = "location.href='/screePlots/'" ><font face= "Courier">Parallel Coordinates</a>
+        <a href= "#dataProjectionPCAVect" onclick="location.href='/pcaDataProjection/'"><font face= "Courier">PCA/MDS</a>
+        <a href= "#mdsScatterPlots" onclick="location.href='/mdsScatterPlots/'"><font face= "Courier">Scatter Plot Matrix</a>  
+      </div>
+
+    <!-- <div id ="screeVirticalMenu" class = "sidenav">
+        <a><h2><b><font face= "Courier">Types of Data Sets</b></h2></a>
+        <a href="#mdsEucOrgData" onclick="scatterPlot('{{data}}', 'org', 'mds', 'euc')"><font face= "Courier">Euclidean Distance on Original Data</font></a>
+        <a href="#mdsCorOrgData" onclick="scatterPlot('{{data}}', 'org', 'mds', 'cor')"><font face= "Courier">Correlation Distance on Original Data</a>
+        <a href="#mdsEucStratData" onclick= "scatterPlot('{{data}}', 'strat', 'mds', 'euc')"><font face= "Courier">Euclidean Distance on Stratified Data</font></a>
+        <a href="#mdsCorStratData" onclick= "scatterPlot('{{data}}', 'strat', 'mds', 'cor')"><font face= "Courier">Correlation Distance on Stratified Data</font></a>
+        <a href="#mdsEucRandData" onclick="scatterPlot('{{data}}', 'rand', 'mds', 'euc')"><font face= "Courier">Euclidean Distance on Random Data</font></a>
+        <a href="#mdsCorRandData" onclick="scatterPlot('{{data}}', 'rand', 'mds', 'cor')"><font face= "Courier"> Correlation Distance on Random Data</font></a>
+    </div> -->
+
+
+
+
+</body>
+</html>
